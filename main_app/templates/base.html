@@ -6,25 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://kit.fontawesome.com/d8a71af2a6.js" crossorigin="anonymous">
+    </script>
     <title>Djinstagram</title>
 </head>
 <body>
     <div class="user-view">
+
         <header>
-            <a href="/">
-                <div class="logo">Djinstagram</div>
+            <div class="logo">
+                <a href="/">Djinstagram</a>
+            </div>
             </a>
             <nav>
-                <a href="#">New Post</a>
-                <a href="#">Profile</a>
+                <a href="#"><i class="fa-regular fa-square-plus"></i></a>
             </nav>
         </header>
+
+        <hr />
+
         <main class="post-list">
             {% block content %}{% endblock content %}
         </main>
+
         <footer>
-            Blah blah blah footer
+            <i class="fa-solid fa-house"></i>
+            <i class="fa-solid fa-user"></i>
         </footer>
+
     </div>
 </body>
+
 </html>
