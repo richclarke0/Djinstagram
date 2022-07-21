@@ -8,7 +8,7 @@
 
 ### *Wireframes, relational diagrams, and other data are available for viewing via this [Miro board link](https://miro.com/app/board/uXjVOkp0SE4=/?share_link_id=42094080267).*
 
-### Tehnologies Used:
+### Technologies Used:
 - Django
 - AWS/S3 for image hosting
 - django-environ (for environmental variables)
