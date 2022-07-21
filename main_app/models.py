@@ -18,9 +18,9 @@ class User(models.Model):
 
 class Post(models.Model):
     photo_url = models.URLField(max_length=200)
-    description = models.CharField(max_length=250)
-    comments = ArrayField(
-        models.CharField(max_length=512))
+    description = models.TextField(max_length=250)
+    # comments = ArrayField(
+    #     models.CharField(max_length=512))
     favorite = ArrayField(
         models.CharField(max_length=512))
     user = models.ForeignKey(User, on_delete=models.CASCADE)
