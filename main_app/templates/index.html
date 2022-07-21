@@ -1,8 +1,28 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
 
-{% block content %}
-{% comment %} for post in posts blah blah blah some kind of iterator  {% endcomment %}
+{% block content %} 
+
+{% comment %} for post in posts blah blah blah some kind of iterator {% endcomment %}
+<div class="post">
+  <div class="poster">
+    <div class="profile-img"></div>
+    <div class="poster-name"></div>
+  </div>
+  <div class="post-img">
+    {% comment %} post-img will be a box with grey background {% endcomment %}
+    {% comment %} img itself {% endcomment %} {% comment %} .post-img img {max
+    width max height} {% endcomment %}
+  </div>
+  <div class="desc">
+    {% comment %} truncated description... {% endcomment %} {% comment %}
+    post.desc.slice(0,25) + "..." {% endcomment %}
+  </div>
+  <div class="likes">
+    <div class="like-counter">123</div>
+    <div class="heart"></div>
+  </div>
+</div>
 <div class="post">Hard Coded Post</div>
 <div class="post">Hard Coded Post</div>
-<div class="post">Hard Coded Post</div>
+
 {% endblock content %}
