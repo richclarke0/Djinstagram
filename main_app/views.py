@@ -7,7 +7,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 # posts = ""
 
 def home(request):
-    return render(request, 'index.html', { 'posts' : posts })
+    return render(request, 'index.html')
 
 def post_index(request):
     posts = Post.objects.all()
