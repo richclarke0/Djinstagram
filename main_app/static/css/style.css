@@ -73,7 +73,7 @@ footer {
 .post {
     display: flex;
     flex-direction: column;
-    height: 400px;
+    height: auto;
 }
 
 .post-header {
@@ -93,6 +93,11 @@ footer {
 
 .post-description {
     padding: 10px 3%;
+}
+
+hr {
+    width: 95%;
+    margin: auto;
 }
 
 ::-webkit-scrollbar {
