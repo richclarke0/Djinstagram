@@ -1,12 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+:root {
+    --logo-text: "Satisfy", cursive;
+    --logo-color: black;
+    --heading-text: "Helvetica Neue", sans-serif;
+    --username-text: "Helvetica Neue Light", sans-serif;
+    --descriptive-text: "HelveticaNeue-Light", sans-serif;
+}
+
 * {
-    /* border: 1px solid red; */
-    margin: 0
+    margin: 0;
 }
 
 body {
     background-color: rgb(60, 60, 60);
     display: flex;
     justify-content: center;
+}
+
+header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    box-sizing: border-box;
+    height: 40px;
+    margin-top: 1rem;
+    margin-bottom: 1.2rem;
+    padding: 5px 5%;
+}
+
+nav a {
+    font-size: 2vw;
+    color: var(--logo-color);
+}
+
+.logo {
+    font-family: var(--logo-text);
+    font-size: 2vw;
+}
+
+.logo a {
+    text-decoration: none;
+    color: var(--logo-color)
+}
+
+footer {
+    position: fixed;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    background-color: white;
+    bottom: 0;
+    height: 50px;
+    width: 480px;
+    padding: 10px 5%;
 }
 
 .user-view {
@@ -16,34 +64,18 @@ body {
 }
 
 .post-list{
-    height: calc(100vh - 70px);
+    height: calc(100vh - 80px);
     box-sizing: border-box;
-    padding: 5px;
+    padding: 5px 0px;
     overflow-y:scroll;
 }
 
 .post {
-border: .2px solid grey;
-height: 400px;
+    height: 400px;
 }
 
 ::-webkit-scrollbar {
     display: none;
 }
 
-header {
-    height: 40px;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    background-color: antiquewhite;
-    box-sizing: border-box;
-    padding: 5px;
-}
 
-footer {
-    height: 30px;
-    background-color: antiquewhite;
-    box-sizing: border-box;
-    padding: 5px;
-}
