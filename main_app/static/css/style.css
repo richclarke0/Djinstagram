@@ -66,12 +66,33 @@ footer {
 .post-list{
     height: calc(100vh - 80px);
     box-sizing: border-box;
-    padding: 5px 0px;
+    padding: 0px;
     overflow-y:scroll;
 }
 
 .post {
+    display: flex;
+    flex-direction: column;
     height: 400px;
+}
+
+.post-header {
+    display: flex;
+    padding: 10px 5%;
+}
+
+.post-img img {
+    width: 100%;
+    height: auto;
+}
+
+.post-likes {
+    display: flex;
+    padding: 10px 3%;
+}
+
+.post-description {
+    padding: 10px 3%;
 }
 
 ::-webkit-scrollbar {
