@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Your Posts</h1>
+
+{% for post in posts %}
+<a href="/posts/{{ post.id }}">
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title"></span>
+      <img src="{{ post.photo_url}}"/>
+      <p>Username : {{post.user.username}} <p>Caption: {{ post.caption}}</p>
+        
+        <span> Comments: {{post.comments}}</span>
+      </a>
+      </div>
+    </div>
+  {% endfor %}
+  
+  {% endblock %}
+        
