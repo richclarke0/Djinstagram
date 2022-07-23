@@ -5,14 +5,26 @@ from django.views.generic.edit import  CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from django.http import HttpResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import SignUpForm
+from .forms import SignUpForm, ProfileForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
+from django.db import transaction
+from django.views.generic import TemplateView
+from django.http import HttpResponseRedirect
+from django.contrib import messages
+from django.urls import reverse_lazy
+from django.urls import reverse
+
+
+
+
+
+from django.contrib.auth.models import User
+
 # import uuid
 # import boto3
 
 # from urllib import request
-from django.contrib.auth.models import User
 
 
 
@@ -80,3 +92,40 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
+
+class ProfileDetail(LoginRequiredMixin,DetailView):
+    model= Profile
+    user= User
+    def get_absolute_url(self):
+       
+        return reverse('profile_detail', kwargs={'pk': self.id})
+
+
+
+class ProfileUpdateView(LoginRequiredMixin, TemplateView):
+    user_form = SignUpForm
+    profile_form = ProfileForm
+    template_name = 'common/profile-update.html'
+    
+    def post(self, request):
+
+        post_data = request.POST or None
+
+        user_form = SignUpForm(post_data, instance=request.user)
+        profile_form = ProfileForm(post_data, instance=request.user.profile)
+
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Your profile was successfully updated!')
+            return HttpResponseRedirect(reverse_lazy('profile'))
+
+        context = self.get_context_data(
+                                        user_form=user_form,
+                                        profile_form=profile_form
+                                    )
+
+        return self.render_to_response(context)     
+
+    def get(self, request, *args, **kwargs):
+        return self.post(request, *args, **kwargs)

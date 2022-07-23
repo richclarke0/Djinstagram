@@ -5,6 +5,8 @@ from django.contrib.postgres.fields import ArrayField
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django import forms
+from django.contrib.auth.models import User
 
 
 
@@ -15,7 +17,8 @@ class Profile(models.Model):
     profile_picture = models.URLField(max_length=200)
 
     def __str__(self):
-        return self.user.username
+        return self.user.username + " Profile"
+        
             
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
@@ -25,9 +28,6 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
- 
-    # def get_absolute_url(self):
-    #     return reverse(kwargs={'user_id': self.id})
 
 
 class Post(models.Model):
