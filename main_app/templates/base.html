@@ -20,8 +20,8 @@
           <li><a href="/posts/">@ {{user.username}} </a></li>
           <li><a href="{% url 'post_create' %}">Add a Post</a></li>
           <li><a href="{% url 'logout' %}">Log Out</a></li>
-          <li><a href="/profile/<int:pk>/update/" >Profile update</a></li>
-          <li><a href="/profile/<int:pk>/" >Profile</a></li>
+          <li><a href="{% url 'profile_update' pk=user.id %}" >Profile update</a></li>
+          <li><a href="{% url 'profile_detail' pk=user.id %}" >Profile</a></li>
 
           {% else %}
           <li><a href="{% url 'signup' %}">Sign Up</a></li>

@@ -97,7 +97,8 @@ class ProfileDetail(LoginRequiredMixin,DetailView):
     model= Profile
     user= User
     def get_absolute_url(self):
-       
+    # print(self)
+        
         return reverse('profile_detail', kwargs={'pk': self.id})
 
 
@@ -105,9 +106,9 @@ class ProfileDetail(LoginRequiredMixin,DetailView):
 class ProfileUpdateView(LoginRequiredMixin, TemplateView):
     user_form = SignUpForm
     profile_form = ProfileForm
-    template_name = 'common/profile-update.html'
+    template_name = 'registration/profile-update.html'
     
-    def post(self, request):
+    def post(self, request, *args, **kwargs):
 
         post_data = request.POST or None
 
