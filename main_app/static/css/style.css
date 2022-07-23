@@ -135,6 +135,7 @@ hr {
 }
 
 /* Style for registration/signup.html */
+
 .registration-logo {
     font-family: var(--logo-text);
     font-size: 3vw;
@@ -179,6 +180,46 @@ hr {
 }
 
 .signup-form input[type=submit] {
+    align-self: center;
+    width: fit-content;
+    font-family: var(--heading-text);
+    font-weight: bold;
+    margin-top: 4%;
+}
+
+/* Style for registration/login.html */
+
+.login-logo {
+    font-family: var(--logo-text);
+    font-size: 3vw;
+    text-align: center;
+    padding-top: 50%;
+}
+
+.login-logo a {
+    text-decoration: none;
+    color: var(--logo-color)
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--heading-text);
+    font-weight: bold;
+}
+
+.login-form p {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+}
+
+.login-form label, input, .helptext {
+    width: 90%;
+    margin: 0px 5%;
+}
+
+.login-form input[type=submit] {
     align-self: center;
     width: fit-content;
     font-family: var(--heading-text);
