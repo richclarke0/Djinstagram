@@ -1,14 +1,28 @@
-{% extends 'base.html' %}
-{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </script>
+    <title>Djinstagram</title>
+</head>
 
-<h1>Log In</h1>
+<body>
+  <div class="user-view">
 
-<!-- Add the login form -->
-<form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" class="btn" value="login">
-  <input type="hidden" name="next" value="{{ next }}">
-</form>
+    <div class="login-logo">
+      <a href="/">Djinstagram</a>
+    </div>
+        
+    <form class="login-form" method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" class="btn" value="Login">
+      <input type="hidden" name="next" value="{{ next }}">
+    </form>
 
-{% endblock %}
+</div>
+</body>
