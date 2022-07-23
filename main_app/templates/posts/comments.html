@@ -1,17 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Description and Comments page</h1>
+<h1>Caption and Comments page</h1>
 
 <div class="parent">
-    <div class="description">
+    <div class="caption">
         {% comment %} here is the rendered description for the post from the original user  {% endcomment %}
+        <img src="{{post.photo_url}}" style="max-width: 15em;" alt="">
+        <p>{{post.user}}: {{post.caption}}</p>
     </div>
     <div class="comments-list">
         {% comment %} iterate over the list of comments from other users  {% endcomment %}
+        {% if post.comment_set.all %}
+            {% for comment in post.comment_set.all %}
+                <p>{{comment.user}}: {{comment.body}}</p>
+            {% endfor %}
+        {% else %}
+        <h5>no comments added yet, add one below</h5>
+        {% endif %}
     </div>
     <div class="add-comment">
         {% comment %} add a comment to the post for logged in user  {% endcomment %}
+        <form action="{% url 'add_comment' post.id user.id %}" method="post">
+            {% csrf_token %}
+            <textarea name="body" cols="20" rows="5" placeholder="Enter a comment as {{user}}" maxlength="500"></textarea>
+            <input type="submit">
+        </form>
     </div>
 </div>
 

@@ -132,21 +132,18 @@ class ProfileUpdateView(LoginRequiredMixin, TemplateView):
         return self.post(request, *args, **kwargs)
 
 
-class CommentsView(TemplateView):
-    model = Comment
-    comments = Comment.objects.all().filter(post=Post)
-    template_name = 'posts/comments.html'
-    # comments = comments for this post 
-    def get_absolute_url(self):
-        return reverse('comments', kwargs={'pk': self.id})
-    
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['post'] = Post.objects.get(id=self.kwargs['pk'])
-    #     return context
-        
-    # def post(self, request, *args, **kwargs):
-    #     post = Post.objects.get(id=self.kwargs['pk'])
-    #     comment = request.POST.get('comment')
-    #     post.comments.create(user=request.user, comment=comment)
-    #     return redirect('comments', pk=post.id)
+# class CommentsView(TemplateView):
+#     model = Comment
+#     template_name = 'posts/comments.html'
+
+def comments_view(request, pk):
+    post = Post.objects.get(id=pk)
+    return render(request, 'posts/comments.html', {
+        'post': post,
+        'user' : request.user,
+        })
+def add_comment(request, post_id, user_id):
+    pass
+
+
+ 
