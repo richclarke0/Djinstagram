@@ -1,12 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+:root {
+    --logo-text: "Satisfy", cursive;
+    --logo-color: black;
+    --heading-text: "Helvetica Neue", sans-serif;
+    --username-text: "Helvetica Neue Light", sans-serif;
+    --descriptive-text: "HelveticaNeue-Light", sans-serif;
+}
+
 * {
-    /* border: 1px solid red; */
-    margin: 0
+    margin: 0;
 }
 
 body {
     background-color: rgb(60, 60, 60);
     display: flex;
     justify-content: center;
+}
+
+header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    box-sizing: border-box;
+    height: 40px;
+    margin-top: 1rem;
+    margin-bottom: 1.2rem;
+    padding: 5px 5%;
+}
+
+nav a {
+    font-size: 2vw;
+    color: var(--logo-color);
+}
+
+.logo {
+    font-family: var(--logo-text);
+    font-size: 2vw;
+}
+
+.logo a {
+    text-decoration: none;
+    color: var(--logo-color)
+}
+
+footer {
+    position: fixed;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    background-color: white;
+    bottom: 0;
+    height: 50px;
+    width: 480px;
+    padding: 10px 5%;
 }
 
 .user-view {
@@ -16,34 +64,54 @@ body {
 }
 
 .post-list{
-    height: calc(100vh - 70px);
+    height: calc(100vh - 80px);
     box-sizing: border-box;
-    padding: 5px;
+    padding: 0px;
     overflow-y:scroll;
 }
 
 .post {
-border: .2px solid grey;
-height: 400px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+.post-header {
+    display: flex;
+    padding: 10px 5%;
+}
+
+.post-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    width: 100%;
+    height: 480px;
+}
+
+.post-img img {
+    height: auto;
+    max-width: 100%;
+    max-height: 480px;
+}
+
+.post-likes {
+    display: flex;
+    padding: 10px 3%;
+}
+
+.post-description {
+    padding: 10px 3%;
+}
+
+hr {
+    width: 95%;
+    margin: auto;
 }
 
 ::-webkit-scrollbar {
     display: none;
 }
 
-header {
-    height: 40px;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    background-color: antiquewhite;
-    box-sizing: border-box;
-    padding: 5px;
-}
 
-footer {
-    height: 30px;
-    background-color: antiquewhite;
-    box-sizing: border-box;
-    padding: 5px;
-}
