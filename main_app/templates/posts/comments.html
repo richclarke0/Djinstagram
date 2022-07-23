@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Description and Comments page</h1>
+
+<div class="parent">
+    <div class="description">
+        {% comment %} here is the rendered description for the post from the original user  {% endcomment %}
+    </div>
+    <div class="comments-list">
+        {% comment %} iterate over the list of comments from other users  {% endcomment %}
+    </div>
+    <div class="add-comment">
+        {% comment %} add a comment to the post for logged in user  {% endcomment %}
+    </div>
+</div>
+
+{% endblock %}

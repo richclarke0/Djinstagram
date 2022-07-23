@@ -1,6 +1,6 @@
 
 from django.shortcuts import render, redirect
-from .models import Post, Profile
+from .models import Post, Profile, Comment
 from django.views.generic.edit import  CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from django.http import HttpResponse
@@ -130,3 +130,23 @@ class ProfileUpdateView(LoginRequiredMixin, TemplateView):
 
     def get(self, request, *args, **kwargs):
         return self.post(request, *args, **kwargs)
+
+
+class CommentsView(TemplateView):
+    model = Comment
+    comments = Comment.objects.all().filter(post=Post)
+    template_name = 'posts/comments.html'
+    # comments = comments for this post 
+    def get_absolute_url(self):
+        return reverse('comments', kwargs={'pk': self.id})
+    
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['post'] = Post.objects.get(id=self.kwargs['pk'])
+    #     return context
+        
+    # def post(self, request, *args, **kwargs):
+    #     post = Post.objects.get(id=self.kwargs['pk'])
+    #     comment = request.POST.get('comment')
+    #     post.comments.create(user=request.user, comment=comment)
+    #     return redirect('comments', pk=post.id)
