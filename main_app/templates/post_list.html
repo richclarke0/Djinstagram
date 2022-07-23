@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Djinstagram</title>
+</head>
+<body>
+    {% comment %} <h1>Feed</h1> {% endcomment %}
+
+{% for post in posts %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title"></span>
+      <img src"{{ post.photo_url}}"/>
+      <p>{{post.user.name}}
+      <p>{{ post.description }}</p>
+      <span> Comments: {{post.comments}}</span>
+
+      
+    </div>
+  </div>
+{% endfor %}
+    <h1>blah</h1>
+</body>
+</html>

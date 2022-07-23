@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% comment %} for post in posts blah blah blah some kind of iterator  {% endcomment %}
+{% for post in posts %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title"></span>
+      <img src"{{ post.photo_url}}"/>
+      <p>{{post.user.name}}
+      <p>{{ post.description }}</p>
+      <span> Comments: {{post.comments}}</span>
+{% comment %} 
+<div class="post">Hard Coded Post</div>
+<div class="post">Hard Coded Post</div>
+<div class="post">Hard Coded Post</div> {% endcomment %}
+{% endblock content %}
