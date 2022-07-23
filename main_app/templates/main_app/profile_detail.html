@@ -23,7 +23,7 @@
 
       <div class="card-action">
         <a href="{% url 'profile_update' user.profile.id %}">Edit</a>
-        <a href="{% url 'profile_delete' user.profile.id %}">Delete</a>
+        {% comment %} <a href="{% url 'profile_delete' user.profile.id %}">Delete</a> {% endcomment %}
       </div>
     </div>
   </div>
