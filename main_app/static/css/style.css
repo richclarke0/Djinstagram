@@ -8,6 +8,8 @@
     --descriptive-text: "HelveticaNeue-Light", sans-serif;
 }
 
+/* Styles the base.html */
+
 * {
     margin: 0;
 }
@@ -30,13 +32,13 @@ header {
 }
 
 nav a {
-    font-size: 2vw;
+    font-size: 3vw;
     color: var(--logo-color);
 }
 
 .logo {
     font-family: var(--logo-text);
-    font-size: 2vw;
+    font-size: 3vw;
 }
 
 .logo a {
@@ -45,10 +47,11 @@ nav a {
 }
 
 footer {
-    position: fixed;
+    position: sticky;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-evenly;
+    align-items: center;
     box-sizing: border-box;
     background-color: white;
     bottom: 0;
@@ -70,6 +73,8 @@ footer {
     overflow-y:scroll;
 }
 
+/* Begins Style for Posts, templates/index.html posts/index.html */
+
 .post {
     display: flex;
     flex-direction: column;
@@ -78,7 +83,10 @@ footer {
 
 .post-header {
     display: flex;
-    padding: 10px 5%;
+    padding: 10px 4%;
+    font-family: var(--heading-text);
+    font-size: 2vh;
+    font-weight: bold;
 }
 
 .post-img {
@@ -98,17 +106,30 @@ footer {
 
 .post-likes {
     display: flex;
-    padding: 10px 3%;
+    padding: 5px 3%;
+    font-family: var(--descriptive-text);
+    font-size: 2vh;
 }
 
 .post-description {
-    padding: 10px 3%;
+    padding: 5px 3%;
+    font-family: var(--descriptive-text);
+    font-size: 1.75vh;
+}
+
+.post-author {
+    font-family: var(--heading-text);
+    font-size: 1.75vh;
+    font-weight: bold;
 }
 
 hr {
     width: 95%;
     margin: auto;
 }
+
+
+/* Webkit for scroll in base.html */
 
 ::-webkit-scrollbar {
     display: none;
