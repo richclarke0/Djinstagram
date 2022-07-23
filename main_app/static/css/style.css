@@ -6,6 +6,7 @@
     --heading-text: "Helvetica Neue", sans-serif;
     --username-text: "Helvetica Neue Light", sans-serif;
     --descriptive-text: "HelveticaNeue-Light", sans-serif;
+    --faded-text: rgb(55, 55, 55);
 }
 
 /* Styles the base.html */
@@ -133,6 +134,57 @@ hr {
     margin: auto;
 }
 
+/* Style for registration/signup.html */
+.registration-logo {
+    font-family: var(--logo-text);
+    font-size: 3vw;
+    text-align: center;
+    padding-top: 25%;
+}
+
+.registration-logo a {
+    text-decoration: none;
+    color: var(--logo-color)
+}
+
+.error-message {
+    color: rgb(148, 6, 6);
+    text-align: center;
+    margin: 5%;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--heading-text);
+    font-weight: bold;
+}
+
+.signup-form p {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-form label, input, .helptext {
+    width: 90%;
+    margin: 0px 5%;
+}
+
+.signup-form .helptext, .signup-form ul {
+    font-family: var(--descriptive-text);
+    font-style: italic;
+    font-weight: lighter;
+    color: var(--faded-text);
+    font-size: 1.75vh;
+}
+
+.signup-form input[type=submit] {
+    align-self: center;
+    width: fit-content;
+    font-family: var(--heading-text);
+    font-weight: bold;
+    margin-top: 4%;
+}
 
 /* Webkit for scroll in base.html */
 
