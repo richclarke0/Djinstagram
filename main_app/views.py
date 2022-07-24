@@ -14,6 +14,8 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.urls import reverse_lazy
 from django.urls import reverse
+from django.contrib.auth.mixins import UserPassesTestMixin
+
 
 
 
@@ -34,7 +36,8 @@ from django.contrib.auth.models import User
 # posts = ""
 
 def home(request):
-    return render(request, 'home.html')
+    posts= Post.objects.all()
+    return render(request, 'home.html', { 'posts': posts })
 
     # return render(request, 'index.html', { 'posts' : posts })
 @login_required
@@ -64,14 +67,29 @@ class PostCreate(LoginRequiredMixin,CreateView):
 
 
 
-class PostUpdate(LoginRequiredMixin,UpdateView):
+class PostUpdate(UserPassesTestMixin, LoginRequiredMixin,UpdateView):
     model = Post
     fields = '__all__'
     success_url: 'post_detail'
+    def test_func(self):
+        self.object = self.get_object() 
+        return self.object.user == self.request.user
+    def handle_no_permission(self):
+        return redirect('home')
+    
 
-class PostDelete(LoginRequiredMixin,DeleteView):
+class PostDelete(UserPassesTestMixin,LoginRequiredMixin, DeleteView,):
     model = Post
-    success_url = '/posts/'
+    success_url = 'index'
+    raise_exception = True
+
+    def test_func(self):
+        self.object = self.get_object() 
+        return self.object.user == self.request.user
+    def handle_no_permission(self):
+        return redirect('home')
+    
+
 
 def signup(request):
   error_message = ''
@@ -104,25 +122,26 @@ class ProfileDetail(LoginRequiredMixin,DetailView):
 
 
 class ProfileUpdateView(LoginRequiredMixin, TemplateView):
-    user_form = SignUpForm
+    # user_form = SignUpForm
     profile_form = ProfileForm
+    # fields = ['username','profile_picture', 'bio']
     template_name = 'registration/profile-update.html'
+
     
     def post(self, request, *args, **kwargs):
 
         post_data = request.POST or None
 
-        user_form = SignUpForm(post_data, instance=request.user)
+        # user_form = SignUpForm(post_data, instance=request.user)
         profile_form = ProfileForm(post_data, instance=request.user.profile)
-
-        if user_form.is_valid() and profile_form.is_valid():
-            user_form.save()
+        if profile_form.is_valid():
+            # user_form.save()
             profile_form.save()
             messages.success(request, 'Your profile was successfully updated!')
-            return HttpResponseRedirect(reverse_lazy('profile'))
+            return HttpResponseRedirect(reverse_lazy('profile_detail', kwargs={'pk': request.user.id}))
 
         context = self.get_context_data(
-                                        user_form=user_form,
+                                        # user_form=user_form,
                                         profile_form=profile_form
                                     )
 

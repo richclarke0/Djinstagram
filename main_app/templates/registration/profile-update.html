@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-<form method="post">
-    {% csrf_token %}
-    {{ user_form.as_p }}
+<form method="post" action="{% url 'profile_update' pk=user.id  %}">
+  {% csrf_token %}
+    {% comment %} {{ user_form.as_p }} {% endcomment %}
     {{ profile_form.as_p }}
-    <button type="submit">Save changes</button>
-  </form> 
+    <p> 
+      <input type="submit" class="btn" value="update">
+    </form> 
   {% endblock %}
