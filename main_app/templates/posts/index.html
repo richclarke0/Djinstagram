@@ -2,6 +2,10 @@
 
 {% block content %} 
 
+
+{% if user.is_authenticated %}
+
+
 {% for post in posts %}
 
     <div class="post">
@@ -34,5 +38,10 @@
 
     <hr />
 {% endfor %} 
+
+{% else %}
+<h1> Djinstagram</h1>
+<h2> Please Log in or Sign up to join our community</h2> 
+{% endif %}
 
 {% endblock %}
