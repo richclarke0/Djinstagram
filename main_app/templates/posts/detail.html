@@ -11,11 +11,16 @@
       
       <span> Comments: {{post.comments}}</span>
 
+  
       <div class="card-action">
         <a href="{% url 'post_update' post.id %}">Edit</a>
         <a href="{% url 'post_delete' post.id %}">Delete</a>
       </div>
     </a>
+
+  
+
+
   </div>
 </div>
 

@@ -8,10 +8,10 @@
     <div class="card">
       <div class="card-content">
         <span class="card-title">{{ user.username }}</span>
-        <p>bio {{ user.profile.bio}}</p>
+        <p>Bio: {{ profile.bio}}</p>
       </div>
     
-      <img class="responsive-img card-panel" src="{{profile.photo_picture}}">
+      <img class="responsive-img card-panel" src="{{user.profile.profile_picture}}">
       <div class="card-action">
         
       </div>
@@ -23,7 +23,6 @@
 
       <div class="card-action">
         <a href="{% url 'profile_update' user.profile.id %}">Edit</a>
-        {% comment %} <a href="{% url 'profile_delete' user.profile.id %}">Delete</a> {% endcomment %}
       </div>
     </div>
   </div>
