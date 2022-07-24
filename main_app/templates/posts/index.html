@@ -1,21 +1,38 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} 
 
-<h1>Your Posts</h1>
+{% block content %} 
 
 {% for post in posts %}
-<a href="/posts/{{ post.id }}">
-  <div class="card">
-    <div class="card-content">
-      <span class="card-title"></span>
-      <img src="{{ post.photo_url}}"/>
-      <p>Username : {{post.user.username}} <p>Caption: {{ post.caption}}</p>
-        
-        <span> Comments: {{post.comments}}</span>
-      </a>
+
+    <div class="post">
+      <div class="post-header">
+        <p><i class="fa-regular fa-circle-user"></i>&nbsp;</p>
+        <p>{{ post.user.username }}</p>
+      </div>
+
+      <div class="post-img">
+        <img src="{{ post.photo_url }}" alt="" />
+      </div>
+
+      <div class="post-likes">
+        <div class="post-heart">
+          <i class="fa-regular fa-heart"></i>
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <div class="post-likes-counter">123 likes</div>
+      </div>
+
+      <div class="post-description">
+        <div class="post-author">
+          <p>@{{ post.user.username }}:</p>
+        </div>
+        <div class="post-description-text">
+          <p>{{ post.caption }}</p>
+        </div>
       </div>
     </div>
-  {% endfor %}
-  
-  {% endblock %}
-        
+
+    <hr />
+{% endfor %} 
+
+{% endblock %}

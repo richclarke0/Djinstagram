@@ -1,117 +1,239 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
 :root {
-    --logo-text: "Satisfy", cursive;
-    --logo-color: black;
-    --heading-text: "Helvetica Neue", sans-serif;
-    --username-text: "Helvetica Neue Light", sans-serif;
-    --descriptive-text: "HelveticaNeue-Light", sans-serif;
+  --logo-text: 'Satisfy', cursive;
+  --logo-color: black;
+  --heading-text: 'Helvetica Neue', sans-serif;
+  --username-text: 'Helvetica Neue Light', sans-serif;
+  --descriptive-text: 'HelveticaNeue-Light', sans-serif;
+  --faded-text: rgb(55, 55, 55);
 }
 
+/* Styles the base.html */
+
 * {
-    margin: 0;
+  margin: 0;
 }
 
 body {
-    background-color: rgb(60, 60, 60);
-    display: flex;
-    justify-content: center;
+  background-color: rgb(60, 60, 60);
+  display: flex;
+  justify-content: center;
 }
 
 header {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    box-sizing: border-box;
-    height: 40px;
-    margin-top: 1rem;
-    margin-bottom: 1.2rem;
-    padding: 5px 5%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  box-sizing: border-box;
+  height: 40px;
+  margin-top: 1rem;
+  margin-bottom: 1.2rem;
+  padding: 5px 5%;
 }
 
 nav a {
-    font-size: 2vw;
-    color: var(--logo-color);
+  font-size: 3vw;
+  color: var(--logo-color);
 }
 
 .logo {
-    font-family: var(--logo-text);
-    font-size: 2vw;
+  font-family: var(--logo-text);
+  font-size: 3vw;
 }
 
 .logo a {
-    text-decoration: none;
-    color: var(--logo-color)
+  text-decoration: none;
+  color: var(--logo-color);
 }
 
 footer {
-    position: fixed;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-evenly;
-    box-sizing: border-box;
-    background-color: white;
-    bottom: 0;
-    height: 50px;
-    width: 480px;
-    padding: 10px 5%;
+  position: sticky;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: white;
+  bottom: 0;
+  height: 50px;
+  width: 480px;
+  padding: 10px 5%;
+}
+
+footer a {
+  font-size: 2vw;
+  color: var(--logo-color);
 }
 
 .user-view {
-    width: 480px;
-    background-color: white;
-    height: 100vh;
+  width: 480px;
+  background-color: white;
+  height: 100vh;
 }
 
-.post-list{
-    height: calc(100vh - 80px);
-    box-sizing: border-box;
-    padding: 0px;
-    overflow-y:scroll;
+.post-list {
+  height: calc(100vh - 80px);
+  box-sizing: border-box;
+  padding: 0px;
+  overflow-y: scroll;
 }
+
+/* Begins Style for Posts, templates/index.html posts/index.html */
 
 .post {
-    display: flex;
-    flex-direction: column;
-    height: auto;
+  display: flex;
+  flex-direction: column;
+  height: auto;
 }
 
 .post-header {
-    display: flex;
-    padding: 10px 5%;
+  display: flex;
+  padding: 10px 4%;
+  font-family: var(--heading-text);
+  font-size: 2vh;
+  font-weight: bold;
 }
 
 .post-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    width: 100%;
-    height: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  width: 100%;
+  height: 480px;
 }
 
 .post-img img {
-    height: auto;
-    max-width: 100%;
-    max-height: 480px;
+  height: auto;
+  max-width: 100%;
+  max-height: 480px;
 }
 
 .post-likes {
-    display: flex;
-    padding: 10px 3%;
+  display: flex;
+  padding: 5px 3%;
+  font-family: var(--descriptive-text);
+  font-size: 2vh;
 }
 
 .post-description {
-    padding: 10px 3%;
+  padding: 5px 3%;
+  font-family: var(--descriptive-text);
+  font-size: 1.75vh;
+}
+
+.post-author {
+  font-family: var(--heading-text);
+  font-size: 1.75vh;
+  font-weight: bold;
 }
 
 hr {
-    width: 95%;
-    margin: auto;
+  width: 95%;
+  margin: auto;
 }
+
+/* Style for registration/signup.html */
+
+.registration-logo {
+  font-family: var(--logo-text);
+  font-size: 3vw;
+  text-align: center;
+  padding-top: 25%;
+}
+
+.registration-logo a {
+  text-decoration: none;
+  color: var(--logo-color);
+}
+
+.error-message {
+  color: rgb(148, 6, 6);
+  text-align: center;
+  margin: 5%;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--heading-text);
+  font-weight: bold;
+}
+
+.signup-form p {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-form label,
+input,
+.helptext {
+  width: 90%;
+  margin: 0px 5%;
+}
+
+.signup-form .helptext,
+.signup-form ul {
+  font-family: var(--descriptive-text);
+  font-style: italic;
+  font-weight: lighter;
+  color: var(--faded-text);
+  font-size: 1.75vh;
+}
+
+.signup-form input[type='submit'] {
+  align-self: center;
+  width: fit-content;
+  font-family: var(--heading-text);
+  font-weight: bold;
+  margin-top: 4%;
+}
+
+/* Style for registration/login.html */
+
+.login-logo {
+  font-family: var(--logo-text);
+  font-size: 3vw;
+  text-align: center;
+  padding-top: 50%;
+}
+
+.login-logo a {
+  text-decoration: none;
+  color: var(--logo-color);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--heading-text);
+  font-weight: bold;
+}
+
+.login-form p {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.login-form label,
+input,
+.helptext {
+  width: 90%;
+  margin: 0px 5%;
+}
+
+.login-form input[type='submit'] {
+  align-self: center;
+  width: fit-content;
+  font-family: var(--heading-text);
+  font-weight: bold;
+  margin-top: 4%;
+}
+
+/* Webkit for scroll in base.html */
 
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
-
-

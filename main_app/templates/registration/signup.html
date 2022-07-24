@@ -1,14 +1,33 @@
-{% extends 'base.html' %}
-{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </script>
+    <title>Djinstagram</title>
+</head>
 
-<h1>Sign Up</h1>
+<body>
 
-{% if error_message %}<p class="red-text">{{ error_message }}</p>{% endif %}
+  <div class="user-view">
 
-<form method="post" action="{% url 'signup' %}">
+    <div class="registration-logo">
+      <a href="/">Djinstagram</a>
+    </div>
+  
+  {% if error_message %}
+  <p class="error-message">{{ error_message }}</p>
+  {% endif %}
+  
+  <form class="signup-form" method="post" action="{% url 'signup' %}">
     {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" class="btn" value="signup">
-</form>
+    {{ form.as_p }}
+    <input type="submit" class="btn" value="Sign Up">
+  </form>
 
-{% endblock %}
+  </div>
+
+</body>

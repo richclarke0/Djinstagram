@@ -1,45 +1,44 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Djinstagram</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://kit.fontawesome.com/d8a71af2a6.js" crossorigin="anonymous">
+    </script>
+    <title>Djinstagram</title>
 </head>
 <body>
-  <header class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
-        <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Djinstagram</a></li>
-        </ul>
-        <ul class="right">
-          {% comment %} <li><a href="/about">About</a></li> {% endcomment %}
-          {% if user.is_authenticated %}
-          <li><a href="/posts/">@ {{user.username}} </a></li>
-          <li><a href="{% url 'post_create' %}">Add a Post</a></li>
-          <li><a href="{% url 'logout' %}">Log Out</a></li>
-          <li><a href="{% url 'profile_update' pk=user.id %}" >Profile update</a></li>
-          <li><a href="{% url 'profile_detail' pk=user.id %}" >Profile</a></li>
+    <div class="user-view">
 
-          {% else %}
-          <li><a href="{% url 'signup' %}">Sign Up</a></li>
-          <li><a href="{% url 'login' %}">Log In</a></li>
-        {% endif %}
+        <header>
+            <div class="logo">
+                <a href="/">Djinstagram</a>
+            </div>
+            </a>
+            <nav>
+                <a href="#"><i class="fa-regular fa-square-plus"></i></a>
+            </nav>
+        </header>
 
-        </ul>
+        <hr />
 
-      </div>
-    </nav>
-  </header>
-  <main class="container">
-    {% block content %}
-    {% endblock %}
-  </main>
-  <footer class="page-footer">
-    <div class="right">All Rights Reserved, &copy; 2019 Cat Collector &nbsp;</div>
-  </footer>
+        <main class="post-list">
+            {% block content %}{% endblock content %}
+        </main>
+
+        <footer>
+            <a href="/posts/">
+                <i class="fa-solid fa-house"></i>
+            </a>
+            <a href="{% url 'profile_detail' pk=user.id %}">
+                <i class="fa-solid fa-user" id="touch"></i>
+            </a>
+        </footer>
+
+    </div>
 </body>
 
 </html>
