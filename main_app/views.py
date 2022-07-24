@@ -5,7 +5,7 @@ from django.views.generic.edit import  CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from django.http import HttpResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import SignUpForm, ProfileForm
+from .forms import SignUpForm, ProfileForm, CommentForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
@@ -142,8 +142,17 @@ def comments_view(request, pk):
         'post': post,
         'user' : request.user,
         })
+
 def add_comment(request, post_id, user_id):
-    pass
+    form = CommentForm(request.POST)
+    # print(form)
+    if form.is_valid():
+        print("valid")
+        new_comment = form.save(commit=False)
+        new_comment.post_id = post_id
+        new_comment.user_id = user_id
+        new_comment.save()
+    return redirect('comments', pk=post_id)
 
 
  
