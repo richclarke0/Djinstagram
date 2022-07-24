@@ -18,9 +18,11 @@
                 <a href="/">Djinstagram</a>
             </div>
             </a>
+            {% if user.id %}
             <nav>
                 <a href="{% url 'post_create' %}"><i class="fa-regular fa-square-plus"></i></a>
             </nav>
+            {% endif %}
         </header>
 
         <hr />
@@ -38,9 +40,9 @@
                 <i class="fa-solid fa-user" id="touch"></i>
             </a>
             {% else %}
-            <a href="#">
+            {% comment %} <a href="#">
                 <i class="fa-solid fa-user" id="touch"></i>
-            </a>
+            </a> {% endcomment %}
             {% endif %}
         </footer>
 

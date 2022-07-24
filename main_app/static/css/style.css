@@ -88,6 +88,11 @@ footer a {
   align-items: center;
 }
 
+.login-splash a {
+  /* text-decoration: none; */
+  color: var(--logo-color);
+}
+
 /* END BASE.HTML STYLE */
 
 /* Begins Style for Posts, templates/index.html posts/index.html */

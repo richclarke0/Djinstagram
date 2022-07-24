@@ -78,7 +78,7 @@
 {% else %}
 <div class="login-splash">
   <h1> Djinstagram</h1>
-  <h2> Please Log in or Sign up to join our community</h2>
+  <h2> Please <a href="{% url 'login' %}" class="href">Log in</a> or <a href="{% url 'signup' %}">Sign up</a> to join our community</h2>
 </div>
 {% endif %}
 
