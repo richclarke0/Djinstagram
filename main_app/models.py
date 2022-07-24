@@ -38,6 +38,7 @@ class Post(models.Model):
     # favorite = ArrayField(
     #     models.CharField(max_length=512))
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    date = models.DateField(auto_now=True)
  
     def __str__(self):
         return self.caption
