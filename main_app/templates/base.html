@@ -33,9 +33,15 @@
             <a href="/posts/">
                 <i class="fa-solid fa-house"></i>
             </a>
+            {% if user.id %}
             <a href="{% url 'profile_detail' pk=user.id %}">
                 <i class="fa-solid fa-user" id="touch"></i>
             </a>
+            {% else %}
+            <a href="#">
+                <i class="fa-solid fa-user" id="touch"></i>
+            </a>
+            {% endif %}
         </footer>
 
     </div>
