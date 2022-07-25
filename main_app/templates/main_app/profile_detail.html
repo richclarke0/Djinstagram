@@ -24,7 +24,9 @@
 
     <div class="profile-photos">
       {% for post in user.post_set.all %}
-      <img src="{{ post.photo_url }}" />
+      <div class="photo-container">
+        <img src="{{ post.photo_url }}" />
+      </div>
       {% endfor %}
     </div>
 
