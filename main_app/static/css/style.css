@@ -79,6 +79,8 @@ footer a {
   overflow-y: scroll;
 }
 
+/* END BASE.HTML STYLE */
+
 /* Begins Style for Posts, templates/index.html posts/index.html */
 
 .post {
@@ -117,16 +119,32 @@ footer a {
   font-size: 2vh;
 }
 
+.post-comments {
+  padding-left: 1%;
+}
+
 .post-description {
   padding: 5px 3%;
   font-family: var(--descriptive-text);
   font-size: 1.75vh;
 }
 
-.post-author {
+.post-author, .post-view-comments {
   font-family: var(--heading-text);
   font-size: 1.75vh;
   font-weight: bold;
+}
+
+.post-view-comments {
+  padding: 2%;
+}
+
+.post-view-comments a {
+  text-decoration: none;
+  color: black;
+}
+.post-view-comments a:hover {
+  color: rgb(5, 5, 114);
 }
 
 hr {
@@ -146,6 +164,14 @@ hr {
 .registration-logo a {
   text-decoration: none;
   color: var(--logo-color);
+}
+
+.login-redirect a {
+  font-size: 2vw;
+}
+.login-redirect a:hover {
+  font-size: 2vw;
+  color: rgb(5, 5, 114);
 }
 
 .error-message {
@@ -202,6 +228,18 @@ input,
 .login-logo a {
   text-decoration: none;
   color: var(--logo-color);
+}
+
+.signup-redirect a {
+  font-size: 2vw;
+}
+.signup-redirect a:hover {
+  font-size: 2vw;
+  color: rgb(5, 5, 114);
+}
+
+.errorlist.nonfield {
+  color: rgb(148, 6, 6);
 }
 
 .login-form {
