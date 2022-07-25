@@ -128,7 +128,8 @@ footer a {
   font-size: 1.75vh;
 }
 
-.post-author, .post-view-comments {
+.post-author,
+.post-view-comments {
   font-family: var(--heading-text);
   font-size: 1.75vh;
   font-weight: bold;
@@ -153,6 +154,50 @@ hr {
 /* ENDS Style for Posts, templates/index.html posts/index.html */
 
 /* Style for profile/ (profile page) */
+.profile-header {
+  display: flex;
+  margin: 1%;
+}
+
+.profile-img img {
+  border-radius: 50%;
+}
+
+.profile-description {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3%;
+  margin-top: 5%;
+  font-family: var(--descriptive-text);
+  font-size: 1.75vh;
+}
+
+span.profile-username {
+  font-family: var(--heading-text);
+  font-size: 3vh;
+  text-align: left;
+}
+
+span.profile-realname {
+  font-family: var(--heading-text);
+  font-size: 2vh;
+  text-align: left;
+}
+
+.profile-actions a {
+  text-decoration: none;
+}
+
+.profile-actions button {
+  background-color: white;
+  color: black;
+  border: 3px solid #e7e7e7;
+}
+
+.profile-actions button:hover {
+  background-color: #e7e7e7;
+}
+
 .profile-photos {
   display: flex;
   flex-flow: row wrap;
@@ -182,7 +227,7 @@ hr {
 .empty-comments {
   font-family: var(--descriptive-text);
   font-style: italic;
-  font-size: 1.70vh;
+  font-size: 1.7vh;
   padding: 2% 3%;
 }
 
@@ -194,15 +239,16 @@ hr {
   padding: 1%;
   font-family: var(--descriptive-text);
   font-weight: light;
-  font-size: 1.70vh;
+  font-size: 1.7vh;
 }
 
-.add-comment, textarea {
+.add-comment,
+textarea {
   width: 90%;
   margin: 1% 5%;
   font-family: var(--descriptive-text);
   font-weight: light;
-  font-size: 1.70vh;
+  font-size: 1.7vh;
 }
 
 span.user-reference {
