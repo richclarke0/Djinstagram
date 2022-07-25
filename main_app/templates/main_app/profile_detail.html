@@ -10,13 +10,23 @@
     </div>
 
     <div class="profile-description">
-      <span>{{ user.username }}</span>
-      <p>Bio: {{ profile.bio}}</p>
-    </div>
+      <span class="profile-username">@{{ user.username }}</span>
+      <span class="profile-realname">{{ user.first_name }} {{ user.last_name }}</span>
 
-    <div class="profile-actions">
-      <a href="{% url 'profile_update' user.profile.id %}">Edit</a>
-      <a href="{% url 'logout' %}">Logout</a>
+      <br />
+
+      <p class="profile-bio">{{ profile.bio}}</p>
+
+      <br />
+
+      <div class="profile-actions">
+        <a href="{% url 'profile_update' user.profile.id %}">
+          <button>Edit Profile</button>
+        </a>
+        <a href="{% url 'logout' %}">
+        <button>Logout</button>
+        </a>
+      </div>
     </div>
   </div>
 
