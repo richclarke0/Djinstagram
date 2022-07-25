@@ -19,11 +19,21 @@
       </div>
 
       <div class="post-likes">
+
         <div class="post-heart">
           <i class="fa-regular fa-heart"></i>
           <i class="fa-solid fa-heart"></i>
         </div>
+
         <div class="post-likes-counter">123 likes</div>
+
+        <div class="post-comments">
+          <i class="fa-regular fa-comment"></i>
+          <i class="fa-solid fa-comment"></i>
+        </div>
+
+        <div class="post-comments-counter">123 comments</div>
+
       </div>
 
       <div class="post-description">
@@ -32,6 +42,11 @@
         </div>
         <div class="post-description-text">
           <p>{{ post.caption }}</p>
+        </div>
+        <div class="post-view-comments">
+          <a href="{% url 'comments' post.id %}">
+            <p>View all comments...</p>
+          </a>
         </div>
       </div>
     </div>
