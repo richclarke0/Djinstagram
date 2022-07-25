@@ -33,6 +33,11 @@
         </main>
 
         <footer>
+            {% if user %}
+            <a href="{% url 'user_logout' %}">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </a>
+            {% endif %}
             <a href="/posts/">
                 <i class="fa-solid fa-house"></i>
             </a>
