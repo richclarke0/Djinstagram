@@ -152,6 +152,40 @@ hr {
   margin: auto;
 }
 
+/* Style for posts/<pk>/ (view comments/detail page) */
+
+.empty-comments {
+  font-family: var(--descriptive-text);
+  font-style: italic;
+  font-size: 1.70vh;
+  padding: 2% 3%;
+}
+
+.comments-list {
+  padding: 1% 3%;
+}
+
+.comment {
+  padding: 1%;
+  font-family: var(--descriptive-text);
+  font-weight: light;
+  font-size: 1.70vh;
+}
+
+.add-comment, textarea {
+  width: 90%;
+  margin: 1% 5%;
+  font-family: var(--descriptive-text);
+  font-weight: light;
+  font-size: 1.70vh;
+}
+
+span.user-reference {
+  font-weight: bold;
+}
+
+/* End style for comments/detail page */
+
 /* Style for registration/signup.html */
 
 .registration-logo {
