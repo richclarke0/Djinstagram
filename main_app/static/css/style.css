@@ -82,7 +82,6 @@ footer a {
 /* END BASE.HTML STYLE */
 
 /* Begins Style for Posts, templates/index.html posts/index.html */
-
 .post {
   display: flex;
   flex-direction: column;
@@ -151,9 +150,35 @@ hr {
   width: 95%;
   margin: auto;
 }
+/* ENDS Style for Posts, templates/index.html posts/index.html */
+
+/* Style for profile/ (profile page) */
+.profile-photos {
+  display: flex;
+  flex-flow: row wrap;
+  width: 98%;
+  margin: auto;
+  margin-top: 1%;
+}
+
+.photo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  width: 33%;
+  height: 160px;
+  background-color: black;
+}
+
+.profile-photos img {
+  height: auto;
+  max-width: 100%;
+  max-height: 160px;
+}
+/*END style for profile*/
 
 /* Style for posts/<pk>/ (view comments/detail page) */
-
 .empty-comments {
   font-family: var(--descriptive-text);
   font-style: italic;
@@ -183,11 +208,9 @@ hr {
 span.user-reference {
   font-weight: bold;
 }
-
 /* End style for comments/detail page */
 
 /* Style for registration/signup.html */
-
 .registration-logo {
   font-family: var(--logo-text);
   font-size: 3vw;
@@ -249,9 +272,9 @@ input,
   font-weight: bold;
   margin-top: 4%;
 }
+/* END Style for registration/signup.html */
 
 /* Style for registration/login.html */
-
 .login-logo {
   font-family: var(--logo-text);
   font-size: 3vw;
@@ -303,6 +326,7 @@ input,
   font-weight: bold;
   margin-top: 4%;
 }
+/* END Style for registration/login.html */
 
 /* Webkit for scroll in base.html */
 
