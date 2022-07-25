@@ -42,7 +42,7 @@ def home(request):
     # return render(request, 'index.html', { 'posts' : posts })
 @login_required
 def post_index(request):
-    posts = Post.objects.filter(user=request.user)
+    posts = Post.objects.filter(user=request.user).order_by('-date')
     return render(request, 'posts/index.html', { 'posts': posts })
 
 # class PostList(ListView):
