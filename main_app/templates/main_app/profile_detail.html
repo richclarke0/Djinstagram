@@ -25,7 +25,9 @@
     <div class="profile-photos">
       {% for post in user.post_set.all %}
       <div class="photo-container">
-        <img src="{{ post.photo_url }}" />
+        <a href="{% url 'comments' post.id %}">
+          <img src="{{ post.photo_url }}" />
+        </a>
       </div>
       {% endfor %}
     </div>
