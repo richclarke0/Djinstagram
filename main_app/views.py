@@ -36,8 +36,8 @@ from django.contrib.auth.models import User
 # posts = ""
 
 def home(request):
-    posts= Post.objects.all()
-    return render(request, 'home.html', { 'posts': posts })
+    posts= Post.objects.all().order_by('-date')
+    return render(request, 'posts/index.html', { 'posts': posts })
 
     # return render(request, 'index.html', { 'posts' : posts })
 @login_required
