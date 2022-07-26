@@ -7,7 +7,9 @@
     <div class="post">
       <div class="post-header">
         <p><i class="fa-regular fa-circle-user"></i>&nbsp;</p>
+        <a style= "text-decoration: none; color: black "href="{% url 'profile_detail' pk=user.id %}">
         <p>{{ post.user.username }}</p>
+      </a>
       </div>
 
       <div class="post-img">
@@ -24,7 +26,10 @@
 
       <div class="post-description">
         <div class="post-author">
-          <p>@{{ post.user.username }}:</p>
+          <a style= "text-decoration: none; color: black "href="{% url 'profile_detail' pk=user.id %}">
+            <p>@{{ post.user.username }}:</p>
+            <i class="fa-solid fa-user" id="touch"></i>
+        </a>
         </div>
         <div class="post-description-text">
           <p>{{ post.caption }}</p>
