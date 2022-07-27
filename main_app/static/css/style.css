@@ -228,6 +228,11 @@ span.profile-realname {
 /*END style for profile*/
 
 /* Style for posts/<pk>/ (view comments/detail page) */
+.delete-post {
+  background-color: rgb(148, 6, 6);
+  color: white;
+}
+
 .empty-comments {
   font-family: var(--descriptive-text);
   font-style: italic;
