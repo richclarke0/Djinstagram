@@ -295,6 +295,19 @@ span.profile-realname {
   color: white;
 }
 
+.edit-delete-post, .edit-delete-post a{
+  gap: .4em;
+  padding-top: .4em;
+  font-family: var(--username-text);
+  font-weight: bold;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1em;
+  justify-content: center;
+  color: black;
+  text-decoration: none;
+}
+
 .delete-confirm {
   display: flex;
   flex-flow: column nowrap;
