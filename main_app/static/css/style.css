@@ -270,6 +270,24 @@ span.user-reference {
 }
 /* End style for comments/detail page */
 
+/* Style for Post Create Page */
+.create-post {
+  font-family: var(--heading-text);
+  font-size: 2vh;
+  text-align: center;
+}
+
+.create-post input[type="submit"] {
+  background-color: white;
+  color: black;
+  border: 3px solid #e7e7e7;
+}
+
+.create-post input[type="submit"]:hover {
+  background-color: #e7e7e7;
+}
+/* End Style for Post Create Page */
+
 /* Style for registration/signup.html */
 .registration-logo {
   font-family: var(--logo-text);
