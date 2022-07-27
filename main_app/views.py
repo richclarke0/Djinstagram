@@ -58,7 +58,7 @@ def like_post(request):
             else:
                 like.value = 'Like'
         like.save()
-    return redirect('index')
+    return redirect('home')
 
 
 
@@ -78,7 +78,7 @@ def post_detail(request, post_id):
 class PostCreate(LoginRequiredMixin,CreateView):
     model = Post
     fields = ['photo_url', 'caption']
-    success_url = '/posts/'
+    success_url = '/'
 
     def form_valid(self, form):
         # Assign the logged in user (self.request.user)
