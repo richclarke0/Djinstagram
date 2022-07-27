@@ -33,6 +33,7 @@
         {% endif %}
     </div>
 
+
     <hr />
 
     <div class="add-comment">
@@ -42,7 +43,12 @@
             <input type="submit" value="Post Comment">
         </form>
     </div>
-
+    {% if user == post.user %}
+    <div class="card-action">
+        <a href="{% url 'post_update' post.id %}">Edit Post</a>
+        <a href="{% url 'post_delete' post.id %}">Delete Post</a>
+    </div>
+    {% endif %}
 </div>
 
 {% endblock %}
