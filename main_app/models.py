@@ -47,7 +47,7 @@ class Post(models.Model):
         return self.liked.all().count()
 
     def get_absolute_url(self):
-        return reverse('post_detail', kwargs={'post_id': self.id})
+        return reverse('comments', kwargs={'pk': self.id})
 
 class Comment(models.Model):
     body = models.TextField(max_length=500)
