@@ -39,13 +39,6 @@ def home(request):
     posts= Post.objects.all().order_by('-date')
     return render(request, 'posts/index.html', { 'posts': posts })
 
-    # return render(request, 'index.html', { 'posts' : posts })
-@login_required
-def post_index(request):
-    user=request.user
-    posts = Post.objects.filter(user=request.user).order_by('-date')
-    return render(request, 'posts/index.html', { 'posts': posts, 'user':user })
-
 def like_post(request):
     user=request.user
     if request.method =="POST":

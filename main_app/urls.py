@@ -6,7 +6,6 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('profile/<int:pk>/update/', views.ProfileUpdateView.as_view(), name="profile_update"),
     path('profile/<int:pk>/', views.ProfileDetail.as_view(), name='profile_detail'),
-    path('posts/', views.post_index, name='index'),
     path('like/', views.like_post, name='like_post'),
     path('posts/<int:pk>/', views.comments_view, name='comments'),
     path('posts/create/', views.PostCreate.as_view(), name='post_create'),
