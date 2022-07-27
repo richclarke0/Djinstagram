@@ -26,9 +26,9 @@ header {
   flex-flow: row nowrap;
   justify-content: space-between;
   box-sizing: border-box;
-  height: 40px;
-  margin-top: 1rem;
-  margin-bottom: 1.2rem;
+  height: 80px;
+  /* margin-top: 1rem; */
+  /* margin-bottom: 1.2rem; */
   padding: 5px 5%;
 }
 
@@ -73,10 +73,19 @@ footer a {
 }
 
 .post-list {
-  height: calc(100vh - 80px);
+  height: calc(100vh - 135px);
   box-sizing: border-box;
   padding: 0px;
   overflow-y: scroll;
+}
+
+.login-splash {
+  font-family: var(--logo-text);
+  height:100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 /* END BASE.HTML STYLE */
@@ -99,6 +108,7 @@ footer a {
   font-family: var(--heading-text);
   font-size: 2vh;
   font-weight: bold;
+  box-sizing: border-box;
 }
 
 .post-img {
