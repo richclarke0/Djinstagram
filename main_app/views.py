@@ -25,6 +25,7 @@ def home(request):
     posts= Post.objects.all().order_by('-date')
     return render(request, 'posts/index.html', { 'posts': posts })
 
+
 def like_post(request):
     user=request.user
     if request.method =="POST":
@@ -67,8 +68,9 @@ class PostCreate(LoginRequiredMixin,CreateView):
 
 class PostUpdate(UserPassesTestMixin, LoginRequiredMixin,UpdateView):
     model = Post
-    fields = '__all__'
-    success_url: 'post_detail'
+    # fields = '__all__'
+    fields = ['photo_url', 'caption']
+    success_url: 'comments'
     def test_func(self):
         self.object = self.get_object() 
         return self.object.user == self.request.user
