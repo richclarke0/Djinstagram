@@ -19,10 +19,7 @@
             </div>
             </a>
             <nav>
-                {% comment %} {% if user %}
-                <div>@{{user.username}}</div>
-                {% endif %} {% endcomment %}
-                <a href="{% url 'post_create'  %}"><i class="fa-regular fa-square-plus"></i></a>
+                <a href="{% url 'post_create' %}"><i class="fa-regular fa-square-plus"></i></a>
             </nav>
         </header>
 

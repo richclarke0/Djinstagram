@@ -14,8 +14,14 @@
   <div class="user-view">
 
     <div class="login-logo">
-      <a href="/">Djinstagram</a>
+      Djinstagram
+      <br>
+      <div class="signup-redirect">
+        <a href="{% url 'signup' %}">Don't have an account? Sign Up!</a>
+      </div>
     </div>
+
+    
         
     <form class="login-form" method="post" action="{% url 'login' %}">
         {% csrf_token %}
@@ -23,6 +29,7 @@
       <input type="submit" class="btn" value="Login">
       <input type="hidden" name="next" value="{{ next }}">
     </form>
+
 
 </div>
 </body>
