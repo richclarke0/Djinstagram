@@ -140,7 +140,7 @@ class ProfileDetail(LoginRequiredMixin,DetailView):
 class ProfileUpdateView(LoginRequiredMixin, TemplateView):
     # user_form = SignUpForm
     profile_form = ProfileForm
-    # fields = ['username','profile_picture', 'bio']
+    # fields = ['profile_picture', 'bio']
     template_name = 'registration/profile-update.html'
 
     

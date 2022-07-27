@@ -79,6 +79,10 @@ footer a {
   overflow-y: scroll;
 }
 
+.post-list form p:nth-child(2) {
+  visibility: hidden;
+}
+
 .login-splash {
   font-family: var(--logo-text);
   height:100%;
@@ -185,6 +189,7 @@ hr {
   width: 10em;
   height: 10em;
   object-fit: cover;
+  padding: 1.4em;
 }
 
 .profile-img i {
