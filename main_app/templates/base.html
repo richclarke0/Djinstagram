@@ -18,12 +18,11 @@
                 <a href="/">Djinstagram</a>
             </div>
             </a>
+            {% if user.id %}
             <nav>
-                {% comment %} {% if user %}
-                <div>@{{user.username}}</div>
-                {% endif %} {% endcomment %}
-                <a href="{% url 'post_create'  %}"><i class="fa-regular fa-square-plus"></i></a>
+                <a href="{% url 'post_create' %}"><i class="fa-regular fa-square-plus"></i></a>
             </nav>
+            {% endif %}
         </header>
 
         <hr />
@@ -33,12 +32,7 @@
         </main>
 
         <footer>
-            {% if user %}
-            <a href="{% url 'user_logout' %}">
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            </a>
-            {% endif %}
-            <a href="/posts/">
+            <a href="/">
                 <i class="fa-solid fa-house"></i>
             </a>
             {% if user.id %}
@@ -46,9 +40,9 @@
                 <i class="fa-solid fa-user" id="touch"></i>
             </a>
             {% else %}
-            <a href="#">
+            {% comment %} <a href="#">
                 <i class="fa-solid fa-user" id="touch"></i>
-            </a>
+            </a> {% endcomment %}
             {% endif %}
         </footer>
 

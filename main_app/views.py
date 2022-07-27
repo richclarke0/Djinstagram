@@ -1,12 +1,12 @@
 
 from django.shortcuts import render, redirect
-from .models import Post, Profile, Comment
+from .models import Post, Profile, Comment, Like
 from django.views.generic.edit import  CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from django.http import HttpResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import SignUpForm, ProfileForm, CommentForm
-from django.contrib.auth import login, logout
+from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from django.views.generic import TemplateView
@@ -15,48 +15,46 @@ from django.contrib import messages
 from django.urls import reverse_lazy
 from django.urls import reverse
 from django.contrib.auth.mixins import UserPassesTestMixin
-
-
-
-
-
-
 from django.contrib.auth.models import User
 
 # import uuid
 # import boto3
-
 # from urllib import request
-
-
-
-
-
-
-# posts = ""
 
 def home(request):
     posts= Post.objects.all().order_by('-date')
     return render(request, 'posts/index.html', { 'posts': posts })
 
-    # return render(request, 'index.html', { 'posts' : posts })
-@login_required
-def post_index(request):
-    posts = Post.objects.filter(user=request.user).order_by('-date')
-    return render(request, 'posts/index.html', { 'posts': posts })
+def like_post(request):
+    user=request.user
+    if request.method =="POST":
+        post_id = request.POST.get('post_id') 
+        print("this is the post_id"+ post_id)
+        post_obj = Post.objects.get(id=post_id)
 
-# class PostList(ListView):
-#     model = Post
+        if user in post_obj.liked.all():
+            post_obj.liked.remove(user)
+        else:
+            post_obj.liked.add(user)
+        like, created= Like.objects.get_or_create(user=user, post_id=post_id)
+
+        if not created:
+            if like.value == 'Like':
+                like.value = 'Unlike'
+            else:
+                like.value = 'Like'
+        like.save()
+    return redirect('home')
+
 @login_required
 def post_detail(request, post_id):
   post = Post.objects.get(id=post_id)
   return render(request, 'posts/detail.html', { 'post': post })
 
-
 class PostCreate(LoginRequiredMixin,CreateView):
     model = Post
     fields = ['photo_url', 'caption']
-    success_url = '/posts/'
+    success_url = '/'
 
     def form_valid(self, form):
         # Assign the logged in user (self.request.user)
@@ -76,20 +74,16 @@ class PostUpdate(UserPassesTestMixin, LoginRequiredMixin,UpdateView):
         return self.object.user == self.request.user
     def handle_no_permission(self):
         return redirect('home')
-    
 
 class PostDelete(UserPassesTestMixin,LoginRequiredMixin, DeleteView,):
     model = Post
-    success_url = 'index'
+    success_url = '/'
     raise_exception = True
-
     def test_func(self):
         self.object = self.get_object() 
         return self.object.user == self.request.user
     def handle_no_permission(self):
         return redirect('home')
-    
-
 
 def signup(request):
   error_message = ''
@@ -102,7 +96,7 @@ def signup(request):
       user = form.save()
       # This is how we log a user in via code
       login(request, user)
-      return redirect('index')
+      return redirect('home')
     else:
       error_message = 'Invalid sign up - try again'
   # A bad POST or a GET request, so render signup.html with an empty form
@@ -115,8 +109,6 @@ class ProfileDetail(LoginRequiredMixin,DetailView):
     model= Profile
     user= User
     def get_absolute_url(self):
-    # print(self)
-        
         return reverse('profile_detail', kwargs={'pk': self.id})
 
 
@@ -124,7 +116,7 @@ class ProfileDetail(LoginRequiredMixin,DetailView):
 class ProfileUpdateView(LoginRequiredMixin, TemplateView):
     # user_form = SignUpForm
     profile_form = ProfileForm
-    # fields = ['username','profile_picture', 'bio']
+    # fields = ['profile_picture', 'bio']
     template_name = 'registration/profile-update.html'
 
     
@@ -157,6 +149,8 @@ class ProfileUpdateView(LoginRequiredMixin, TemplateView):
 
 def comments_view(request, pk):
     post = Post.objects.get(id=pk)
+    # print(post.user)
+    # print(request.user)
     return render(request, 'posts/comments.html', {
         'post': post,
         'user' : request.user,
@@ -172,8 +166,3 @@ def add_comment(request, post_id, user_id):
         new_comment.user_id = user_id
         new_comment.save()
     return redirect('comments', pk=post_id)
-
-@login_required
-def user_logout(request):
-    logout(request)
-    return(redirect, 'home')
