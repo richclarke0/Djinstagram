@@ -11,11 +11,15 @@
     <div class="post">
       <div class="post-header">
         <p><i class="fa-regular fa-circle-user"></i>&nbsp;</p>
-        <p>{{ post.user.username }}</p>
+        <a class="index-username" href="{% url 'profile_detail' user.id %}">
+          <p>{{ post.user.username }}</p>
+        </a>
       </div>
 
       <div class="post-img">
-        <img src="{{ post.photo_url }}" alt="" />
+        <a href="{% url 'comments' post.id %}">
+          <img src="{{ post.photo_url }}" alt="" />
+        </a>
       </div>
 
       <div class="post-likes">
@@ -38,7 +42,9 @@
 
       <div class="post-description">
         <div class="post-author">
-          <p>@{{ post.user.username }}:</p>
+          <a class="index-username" href="{% url 'profile_detail' user.id %}">
+            <p>@{{ post.user.username }}:</p>
+          </a>
         </div>
         <div class="post-description-text">
           <p>{{ post.caption }}</p>
