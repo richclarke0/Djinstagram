@@ -6,7 +6,7 @@ from django.views.generic import ListView, DetailView
 from django.http import HttpResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import SignUpForm, ProfileForm, CommentForm
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from django.views.generic import TemplateView
@@ -36,13 +36,13 @@ from django.contrib.auth.models import User
 # posts = ""
 
 def home(request):
-    posts= Post.objects.all()
-    return render(request, 'home.html', { 'posts': posts })
+    posts= Post.objects.all().order_by('-date')
+    return render(request, 'posts/index.html', { 'posts': posts })
 
     # return render(request, 'index.html', { 'posts' : posts })
 @login_required
 def post_index(request):
-    posts = Post.objects.filter(user=request.user)
+    posts = Post.objects.filter(user=request.user).order_by('-date')
     return render(request, 'posts/index.html', { 'posts': posts })
 
 # class PostList(ListView):
@@ -173,5 +173,7 @@ def add_comment(request, post_id, user_id):
         new_comment.save()
     return redirect('comments', pk=post_id)
 
-
- 
+@login_required
+def user_logout(request):
+    logout(request)
+    return(redirect, 'home')

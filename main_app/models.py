@@ -38,6 +38,7 @@ class Post(models.Model):
     # favorite = ArrayField(
     #     models.CharField(max_length=512))
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now=True)
  
     def __str__(self):
         return self.caption
@@ -48,4 +49,4 @@ class Comment(models.Model):
     body = models.TextField(max_length=500)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    date = models.DateField(auto_now=True)
+    date = models.DateTimeField(auto_now=True)
