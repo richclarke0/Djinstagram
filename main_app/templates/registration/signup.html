@@ -15,7 +15,11 @@
   <div class="user-view">
 
     <div class="registration-logo">
-      <a href="/">Djinstagram</a>
+      Djinstagram
+      <br>
+      <div class="login-redirect">
+        <a href="{% url 'login' %}">Already have an account? Login!</a>
+      </div>
     </div>
   
   {% if error_message %}
