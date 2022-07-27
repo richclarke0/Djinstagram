@@ -1,6 +1,6 @@
 
 from django.shortcuts import render, redirect
-from .models import Post, Profile, Comment
+from .models import Post, Profile, Comment, Like
 from django.views.generic.edit import  CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from django.http import HttpResponse
@@ -42,8 +42,35 @@ def home(request):
     # return render(request, 'index.html', { 'posts' : posts })
 @login_required
 def post_index(request):
+    user=request.user
     posts = Post.objects.filter(user=request.user).order_by('-date')
-    return render(request, 'posts/index.html', { 'posts': posts })
+    return render(request, 'posts/index.html', { 'posts': posts, 'user':user })
+
+def like_post(request):
+    user=request.user
+    if request.method =="POST":
+        post_id = request.POST.get('post_id') 
+        print("this is the post_id"+ post_id)
+        post_obj = Post.objects.get(id=post_id)
+
+        if user in post_obj.liked.all():
+            post_obj.liked.remove(user)
+        else:
+            post_obj.liked.add(user)
+        like, created= Like.objects.get_or_create(user=user, post_id=post_id)
+
+        if not created:
+            if like.value == 'Like':
+                like.value = 'Unlike'
+            else:
+                like.value = 'Like'
+        like.save()
+    return redirect('index')
+
+
+
+
+
 
 # class PostList(ListView):
 #     model = Post
@@ -51,6 +78,8 @@ def post_index(request):
 def post_detail(request, post_id):
   post = Post.objects.get(id=post_id)
   return render(request, 'posts/detail.html', { 'post': post })
+
+
 
 
 class PostCreate(LoginRequiredMixin,CreateView):

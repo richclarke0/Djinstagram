@@ -22,6 +22,21 @@
         </a>
       </div>
 
+      <form action="{% url 'like_post' %}" method= 'POST' class='ui form'>
+
+      {% csrf_token %}
+        <input type='hidden' name='post_id' value="{{ post.id }}">
+        {% if user not in post.liked.all %}
+          <button class="ui button positive" type="submit"> Like</button>
+          {%else%}
+          <button class="ui button negative" type="submit"> Unlike</button>
+          {%endif%}
+      </form>
+      <strong> {{ post.liked.all.count }} likes </strong> 
+      
+
+
+
       <div class="post-likes">
 
         <div class="post-heart">
