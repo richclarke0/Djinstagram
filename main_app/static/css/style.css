@@ -182,6 +182,9 @@ hr {
 
 .profile-img img {
   border-radius: 50%;
+  width: 10em;
+  height: 10em;
+  object-fit: cover;
 }
 
 .profile-img i {
