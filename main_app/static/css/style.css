@@ -80,9 +80,24 @@ footer a {
 }
 
 .post-list form p:nth-child(2) {
-  visibility: hidden;
+  display: none
 }
 
+.tiny-user img{
+  border-radius: 50%;
+  width: 1.4em;
+  height: 1.4em;
+  object-fit: cover;
+  box-shadow: .05em .05em .1em black;
+}
+
+.tiny-user {
+  padding-right: .5em;
+}
+
+.header-user-icon{
+  padding-right: .3em
+}
 .login-splash {
   font-family: var(--logo-text);
   height:100%;
@@ -106,9 +121,25 @@ footer a {
   height: auto;
 }
 
+.post form {
+  border-top: 1px solid grey;
+  font-family: var(--heading-text);
+  font-size: 1.2em
+}
+
+.post button {
+  background: transparent;
+    border: none !important;
+}
+
+.red {
+  color: rgb(201, 0, 0);
+  /* border: 1px solid black */
+}
 .index-username {
   text-decoration: none;
   color: black;
+  font-size: 1.2em;
 }
 
 .post-header {
@@ -118,6 +149,7 @@ footer a {
   font-size: 2vh;
   font-weight: bold;
   box-sizing: border-box;
+  align-items: center;
 }
 
 .post-img {
@@ -151,6 +183,7 @@ footer a {
   padding: 5px 3%;
   font-family: var(--descriptive-text);
   font-size: 1.75vh;
+  
 }
 
 .post-author,
