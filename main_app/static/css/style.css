@@ -163,6 +163,10 @@ hr {
   border-radius: 50%;
 }
 
+.profile-img i {
+  font-size: 10vw;
+}
+
 .profile-description {
   display: flex;
   flex-direction: column;

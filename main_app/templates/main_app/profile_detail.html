@@ -6,7 +6,11 @@
 
   <div class="profile-header">
     <div class="profile-img">
+      {% if user.profile.profile_picture %}
       <img src="{{user.profile.profile_picture}}" />
+      {% else %}
+      <i class="fa-solid fa-circle-user"></i>
+      {% endif %}
     </div>
 
     <div class="profile-description">
