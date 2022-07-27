@@ -98,20 +98,16 @@ class PostUpdate(UserPassesTestMixin, LoginRequiredMixin,UpdateView):
         return self.object.user == self.request.user
     def handle_no_permission(self):
         return redirect('home')
-    
 
 class PostDelete(UserPassesTestMixin,LoginRequiredMixin, DeleteView,):
     model = Post
     success_url = 'index'
     raise_exception = True
-
     def test_func(self):
         self.object = self.get_object() 
         return self.object.user == self.request.user
     def handle_no_permission(self):
         return redirect('home')
-    
-
 
 def signup(request):
   error_message = ''
@@ -137,8 +133,6 @@ class ProfileDetail(LoginRequiredMixin,DetailView):
     model= Profile
     user= User
     def get_absolute_url(self):
-    # print(self)
-        
         return reverse('profile_detail', kwargs={'pk': self.id})
 
 
