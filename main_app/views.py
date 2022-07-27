@@ -15,25 +15,11 @@ from django.contrib import messages
 from django.urls import reverse_lazy
 from django.urls import reverse
 from django.contrib.auth.mixins import UserPassesTestMixin
-
-
-
-
-
-
 from django.contrib.auth.models import User
 
 # import uuid
 # import boto3
-
 # from urllib import request
-
-
-
-
-
-
-# posts = ""
 
 def home(request):
     posts= Post.objects.all().order_by('-date')
@@ -60,20 +46,10 @@ def like_post(request):
         like.save()
     return redirect('home')
 
-
-
-
-
-
-# class PostList(ListView):
-#     model = Post
 @login_required
 def post_detail(request, post_id):
   post = Post.objects.get(id=post_id)
   return render(request, 'posts/detail.html', { 'post': post })
-
-
-
 
 class PostCreate(LoginRequiredMixin,CreateView):
     model = Post
