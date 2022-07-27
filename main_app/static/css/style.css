@@ -79,12 +79,18 @@ footer a {
   overflow-y: scroll;
 }
 
-/* Begins Style for Posts, templates/index.html posts/index.html */
+/* END BASE.HTML STYLE */
 
+/* Begins Style for Posts, templates/index.html posts/index.html */
 .post {
   display: flex;
   flex-direction: column;
   height: auto;
+}
+
+.index-username {
+  text-decoration: none;
+  color: black;
 }
 
 .post-header {
@@ -99,6 +105,7 @@ footer a {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: auto;
   background-color: black;
   width: 100%;
   height: 480px;
@@ -117,25 +124,182 @@ footer a {
   font-size: 2vh;
 }
 
+.post-comments {
+  padding-left: 1%;
+}
+
 .post-description {
   padding: 5px 3%;
   font-family: var(--descriptive-text);
   font-size: 1.75vh;
 }
 
-.post-author {
+.post-author,
+.post-view-comments {
   font-family: var(--heading-text);
   font-size: 1.75vh;
   font-weight: bold;
+}
+
+.post-view-comments {
+  padding: 2%;
+}
+
+.post-view-comments a {
+  text-decoration: none;
+  color: black;
+}
+.post-view-comments a:hover {
+  color: rgb(5, 5, 114);
 }
 
 hr {
   width: 95%;
   margin: auto;
 }
+/* ENDS Style for Posts, templates/index.html posts/index.html */
+
+/* Style for profile/ (profile page) */
+.profile-header {
+  display: flex;
+  margin: 1%;
+}
+
+.profile-img img {
+  border-radius: 50%;
+}
+
+.profile-img i {
+  font-size: 10vw;
+}
+
+.profile-description {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3%;
+  margin-top: 5%;
+  font-family: var(--descriptive-text);
+  font-size: 1.75vh;
+}
+
+span.profile-username {
+  font-family: var(--heading-text);
+  font-size: 3vh;
+  text-align: left;
+}
+
+span.profile-realname {
+  font-family: var(--heading-text);
+  font-size: 2vh;
+  text-align: left;
+}
+
+.profile-actions a {
+  text-decoration: none;
+}
+
+.profile-actions button {
+  background-color: white;
+  color: black;
+  border: 3px solid #e7e7e7;
+}
+
+.profile-actions button:hover {
+  background-color: #e7e7e7;
+}
+
+.profile-photos {
+  display: flex;
+  flex-flow: row wrap;
+  width: 98%;
+  margin: auto;
+  margin-top: 1%;
+}
+
+.photo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  width: 33%;
+  height: 160px;
+  background-color: black;
+}
+
+.profile-photos img {
+  height: auto;
+  max-width: 100%;
+  max-height: 160px;
+}
+/*END style for profile*/
+
+/* Style for posts/<pk>/ (view comments/detail page) */
+.delete-post {
+  background-color: rgb(148, 6, 6);
+  color: white;
+}
+
+.empty-comments {
+  font-family: var(--descriptive-text);
+  font-style: italic;
+  font-size: 1.7vh;
+  padding: 2% 3%;
+}
+
+.comments-list {
+  padding: 1% 3%;
+}
+
+.comment {
+  padding: 1%;
+  font-family: var(--descriptive-text);
+  font-weight: light;
+  font-size: 1.7vh;
+}
+
+.add-comment,
+textarea {
+  width: 90%;
+  margin: 1% 5%;
+  font-family: var(--descriptive-text);
+  font-weight: light;
+  font-size: 1.7vh;
+}
+
+.add-comment input[type="submit"] {
+  background-color: white;
+  color: black;
+  border: 3px solid #e7e7e7;
+}
+
+.add-comment input[type="submit"]:hover {
+  background-color: #e7e7e7;
+}
+
+span.user-reference {
+  font-weight: bold;
+}
+/* End style for comments/detail page */
+
+/* Style for Post Create Page */
+.create-post {
+  font-family: var(--heading-text);
+  font-size: 2vh;
+  text-align: center;
+}
+
+.create-post input[type="submit"] {
+  background-color: white;
+  color: black;
+  border: 3px solid #e7e7e7;
+}
+
+.create-post input[type="submit"]:hover {
+  background-color: #e7e7e7;
+}
+/* End Style for Post Create Page */
 
 /* Style for registration/signup.html */
-
 .registration-logo {
   font-family: var(--logo-text);
   font-size: 3vw;
@@ -146,6 +310,14 @@ hr {
 .registration-logo a {
   text-decoration: none;
   color: var(--logo-color);
+}
+
+.login-redirect a {
+  font-size: 2vw;
+}
+.login-redirect a:hover {
+  font-size: 2vw;
+  color: rgb(5, 5, 114);
 }
 
 .error-message {
@@ -189,9 +361,9 @@ input,
   font-weight: bold;
   margin-top: 4%;
 }
+/* END Style for registration/signup.html */
 
 /* Style for registration/login.html */
-
 .login-logo {
   font-family: var(--logo-text);
   font-size: 3vw;
@@ -202,6 +374,18 @@ input,
 .login-logo a {
   text-decoration: none;
   color: var(--logo-color);
+}
+
+.signup-redirect a {
+  font-size: 2vw;
+}
+.signup-redirect a:hover {
+  font-size: 2vw;
+  color: rgb(5, 5, 114);
+}
+
+.errorlist.nonfield {
+  color: rgb(148, 6, 6);
 }
 
 .login-form {
@@ -231,6 +415,7 @@ input,
   font-weight: bold;
   margin-top: 4%;
 }
+/* END Style for registration/login.html */
 
 /* Webkit for scroll in base.html */
 
