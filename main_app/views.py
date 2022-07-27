@@ -6,7 +6,7 @@ from django.views.generic import ListView, DetailView
 from django.http import HttpResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import SignUpForm, ProfileForm, CommentForm
-from django.contrib.auth import login, logout
+from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from django.views.generic import TemplateView
@@ -172,8 +172,3 @@ def add_comment(request, post_id, user_id):
         new_comment.user_id = user_id
         new_comment.save()
     return redirect('comments', pk=post_id)
-
-@login_required
-def user_logout(request):
-    logout(request)
-    return(redirect, 'home')
