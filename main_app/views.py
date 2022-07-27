@@ -101,7 +101,7 @@ class PostUpdate(UserPassesTestMixin, LoginRequiredMixin,UpdateView):
 
 class PostDelete(UserPassesTestMixin,LoginRequiredMixin, DeleteView,):
     model = Post
-    success_url = 'index'
+    success_url = '/'
     raise_exception = True
     def test_func(self):
         self.object = self.get_object() 

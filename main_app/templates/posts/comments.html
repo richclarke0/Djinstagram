@@ -14,7 +14,7 @@
           <p>{{ post.caption }}</p>
         </div>
         {% if request.user == post.user %}
-        <input class="delete-post" type="submit" value="Delete Post">
+        <a href="{% url 'post_delete' post.id %}"><input class="delete-post" type="submit" value="Delete Post"></a>
         {% endif %}
     </div>
 
