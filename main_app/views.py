@@ -173,6 +173,8 @@ class ProfileUpdateView(LoginRequiredMixin, TemplateView):
 
 def comments_view(request, pk):
     post = Post.objects.get(id=pk)
+    # print(post.user)
+    # print(request.user)
     return render(request, 'posts/comments.html', {
         'post': post,
         'user' : request.user,

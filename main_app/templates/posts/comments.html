@@ -13,7 +13,9 @@
         <div class="post-description-text">
           <p>{{ post.caption }}</p>
         </div>
+        {% if request.user == post.user %}
         <input class="delete-post" type="submit" value="Delete Post">
+        {% endif %}
     </div>
 
     <hr />
