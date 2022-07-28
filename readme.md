@@ -18,4 +18,4 @@
 |----------|
 |![image info](./screenshot.png)|
 
-Future enhancements: **There will be none because Django is not that cool.**
+Future enhancements: **It would be cool to be able to delete comments.**
