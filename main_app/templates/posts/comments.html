@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="post">
+
+    <div class="post-img">
+        <img src="{{ post.photo_url }}" alt="" />
+      </div>
+      <div class="post-description">
+        <div class="post-author">
+          <p>@{{ post.user.username }}:</p>
+        </div>
+        <div class="post-description-text">
+          <p>{{ post.caption }}</p>
+        </div>
+        {% if request.user == post.user %}
+        <a href="{% url 'post_delete' post.id %}"><input class="delete-post" type="submit" value="Delete Post"></a>
+        {% endif %}
+    </div>
+
+    <hr />
+
+    <div class="comments-list">
+        {% if post.comment_set.all %}
+            {% for comment in post.comment_set.all %}
+                <p class="comment">
+                    <span class="user-reference">@{{comment.user}}:</span> 
+                    {{comment.body}}
+                </p>
+            {% endfor %}
+        {% else %}
+        <p class="empty-comments">It looks pretty empty here... you should leave a comment to let <span class="user-reference">@{{ post.user.username }}</span> know what you think!</p>
+        {% endif %}
+    </div>
+
+
+    <hr />
+
+    <div class="add-comment">
+        <form action="{% url 'add_comment' post.id user.id %}" method="post">
+            {% csrf_token %}
+            <textarea name="body" placeholder="Leave a comment.." maxlength="500"></textarea>
+            <input type="submit" value="Post Comment">
+        </form>
+    </div>
+    {% if user == post.user %}
+    <div class="edit-delete-post">
+        <a href="{% url 'post_update' post.id %}">Edit Post</a>
+        <a href="{% url 'post_delete' post.id %}">Delete Post</a>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

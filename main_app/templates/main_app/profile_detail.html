@@ -1,0 +1,50 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<div class="profile">
+
+  <div class="profile-header">
+    <div class="profile-img">
+      {% if user.profile.profile_picture %}
+      <img src="{{user.profile.profile_picture}}" />
+      {% else %}
+      <i class="fa-solid fa-circle-user"></i>
+      {% endif %}
+    </div>
+
+    <div class="profile-description">
+      <span class="profile-username">@{{ user.username }}</span>
+      <span class="profile-realname">{{ user.first_name }} {{ user.last_name }}</span>
+
+      <br />
+
+      <p class="profile-bio">{{ profile.bio}}</p>
+
+      <br />
+
+      <div class="profile-actions">
+        <a href="{% url 'profile_update' user.profile.id %}">
+          <button>Edit Profile</button>
+        </a>
+        <a href="{% url 'logout' %}">
+        <button>Logout</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+    <div class="profile-photos">
+      {% for post in user.post_set.all %}
+      <div class="photo-container">
+        <a href="{% url 'comments' post.id %}">
+          <img src="{{ post.photo_url }}" />
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+
+</div>
+{% endblock %}
