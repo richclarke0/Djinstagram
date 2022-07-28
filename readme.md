@@ -18,4 +18,7 @@
 |----------|
 |![image info](./screenshot.png)|
 
-Future enhancements: **It would be cool to be able to delete comments.**
+Future enhancements: 
+- It would be cool to be able to delete comments.
+- Get the profile rendering to work for other peoples profiles instead of the logged in user.
+- Friend functionality.
